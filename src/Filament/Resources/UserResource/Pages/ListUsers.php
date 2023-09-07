@@ -2,10 +2,9 @@
 
 namespace Rupadana\FilamentUserResource\Filament\Resources\UserResource\Pages;
 
-use Rupadana\FilamentUserResource\Filament\Resources\UserResource;
-use BezhanSalleh\FilamentShield\Traits\HasPageShield;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\ListRecords;
+use Rupadana\FilamentUserResource\Filament\Resources\UserResource;
 
 class ListUsers extends ListRecords
 {

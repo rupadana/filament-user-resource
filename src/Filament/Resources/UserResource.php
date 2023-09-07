@@ -2,20 +2,19 @@
 
 namespace Rupadana\FilamentUserResource\Filament\Resources;
 
-use Rupadana\FilamentUserResource\Filament\Resources\UserResource\Pages;
 use App\Models\User;
 use BezhanSalleh\FilamentShield\Contracts\HasShieldPermissions;
-use Filament\Forms;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
-use Filament\Pages\Page;
 use Filament\Forms\Form;
+use Filament\Pages\Page;
 use Filament\Resources\Pages\CreateRecord;
 use Filament\Resources\Resource;
-use Filament\Tables\Table;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Table;
 use Illuminate\Support\Facades\Hash;
+use Rupadana\FilamentUserResource\Filament\Resources\UserResource\Pages;
 
 class UserResource extends Resource implements HasShieldPermissions
 {
@@ -43,7 +42,7 @@ class UserResource extends Resource implements HasShieldPermissions
                     ->dehydrated(fn ($state) => filled($state)),
                 Select::make('roles')
                     ->multiple()
-                    ->relationship('roles', 'name')->preload()
+                    ->relationship('roles', 'name')->preload(),
             ]);
     }
 
@@ -82,7 +81,6 @@ class UserResource extends Resource implements HasShieldPermissions
         ];
     }
 
-
     public static function getNavigationGroup(): ?string
     {
         return __('filament-user-resource::user.navigation.group');
@@ -97,7 +95,7 @@ class UserResource extends Resource implements HasShieldPermissions
             'update',
             'delete',
             'delete_any',
-            'publish'
+            'publish',
         ];
     }
 }

@@ -10,11 +10,11 @@ use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentIcon;
 use Illuminate\Filesystem\Filesystem;
 use Livewire\Features\SupportTesting\Testable;
+use Rupadana\FilamentUserResource\Commands\FilamentUserResourceCommand;
+use Rupadana\FilamentUserResource\Testing\TestsFilamentUserResource;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Rupadana\FilamentUserResource\Commands\FilamentUserResourceCommand;
-use Rupadana\FilamentUserResource\Testing\TestsFilamentUserResource;
 
 class FilamentUserResourceServiceProvider extends PackageServiceProvider
 {
@@ -76,7 +76,7 @@ class FilamentUserResourceServiceProvider extends PackageServiceProvider
 
         // Handle Stubs
         if (app()->runningInConsole()) {
-            foreach (app(Filesystem::class)->files(__DIR__ . '/../stubs/') as $file) {
+            foreach (app(Filesystem::class)->files(__DIR__.'/../stubs/') as $file) {
                 $this->publishes([
                     $file->getRealPath() => base_path("stubs/filament-user-resource/{$file->getFilename()}"),
                 ], 'filament-user-resource-stubs');

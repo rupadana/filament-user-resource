@@ -2,7 +2,6 @@
 
 namespace Rupadana\FilamentUserResource;
 
-
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 use Rupadana\FilamentUserResource\Filament\Resources\UserResource;
@@ -23,7 +22,7 @@ class FilamentUserResourcePlugin implements Plugin
     {
         $panel
             ->resources([
-                UserResource::class
+                UserResource::class,
             ])
             ->pages([]);
     }
